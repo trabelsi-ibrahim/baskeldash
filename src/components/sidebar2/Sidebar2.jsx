@@ -1,4 +1,4 @@
-import "./sidebar.scss";
+import "./sidebar2.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -12,8 +12,6 @@ import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSyst
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
-import EventIcon from '@mui/icons-material/Event';
-import GroupsIcon from '@mui/icons-material/Groups';
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
@@ -34,48 +32,34 @@ const Sidebar = () => {
           <p className="title">MAIN</p>
           <li>
             <DashboardIcon className="icon" />
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/admin" style={{ textDecoration: "none" }}>
 
             <span>Dashboard</span>
             </Link>
 
           </li>
           <p className="title">LISTS</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+          <Link to="/admin/historique" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
-              <span>Users</span>
+              <span>Historique de users</span>
             </li>
           </Link>
-          <Link to="/agence" style={{ textDecoration: "none" }}>
-            <li>
-              <StoreIcon className="icon" />
-              <span>Agence</span>
-            </li>
-          </Link>
+          
           <li>
-            <Link to="/velo" style={{ textDecoration: "none" }}>
+            <Link to="/admin/velo" style={{ textDecoration: "none" }}>
 
             <DirectionsBikeIcon className="icon" />
             <span>Velos</span>
             </Link>
           </li>
           <li>
-            <Link to="/evenement" style={{ textDecoration: "none" }}>
+            <Link to="/admin/evenement" style={{ textDecoration: "none" }}>
 
-            <EventIcon className="icon" />
+            <LocalShippingIcon className="icon" />
             <span>Evenement</span>
             </Link>
           </li>
-          <li>
-            <Link to="/club" style={{ textDecoration: "none" }}>
-
-            <GroupsIcon className="icon" />
-            <span>Club</span>
-            </Link>
-          </li>
-          
-          
           <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />

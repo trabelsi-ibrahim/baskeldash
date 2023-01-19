@@ -11,7 +11,11 @@ import { DarkModeContext } from "./context/darkModeContext";
 import Agence from "./pages/agence/Agence";
 import Velo from "./pages/velo/Velo";
 import Evenement from "./pages/evenement/Evenement";
-
+import Club from "./pages/club/Club";
+import Home2 from "./pages/home2/Home2";
+import List2 from "./pages/list2/List2";
+import Velo2 from "./pages/velo2/Velo2"
+import Evenement2 from "./pages/evenement2/Evenement2";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -39,24 +43,55 @@ function App() {
               />
               </Route>
               <Route path="velo">
-              <Route index element={<Velo />} />
-              <Route path=":veloId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New inputs={productInputs} title="Add New Bike" />}
-              />
+               <Route index element={<Velo />} />
+                 <Route path=":veloId" element={<Single />} />
+                   <Route
+                     path="new"
+                      element={<New inputs={productInputs} title="Add New Bike" />}
+                      />
+              </Route>
+                <Route path="evenement">
+                 <Route index element={<Evenement />} />
+                 <Route path=":evenementId" element={<Single />} />
+                 <Route
+                  path="new"
+                     element={<New inputs={productInputs} title="Add New Event" />}
+                     />
+                </Route>
+                <Route path="club">
+                 <Route index element={<Club />} />
+                 <Route path=":clubId" element={<Single />} />
+                 <Route
+                  path="new"
+                     element={<New inputs={userInputs} title="Add New club" />}
+                     />
+                </Route>
+                <Route path="admin">
+                 <Route index element={<Home2 />} />
+                 <Route path="historique">
+              <Route index element={<List2 />} />
+              <Route path=":userId" element={<Single />} />
+              </Route>
+              <Route path="velo">
+               <Route index element={<Velo2 />} />
+                 <Route path=":veloId" element={<Single />} />
+                   <Route
+                     path="new"
+                      element={<New inputs={productInputs} title="Add New Bike" />}
+                      />
               </Route>
               <Route path="evenement">
-              <Route index element={<Evenement />} />
-              <Route path=":evenementId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
-              />
-
-
-
-            </Route>
+                 <Route index element={<Evenement2 />} />
+                 <Route path=":evenementId" element={<Single />} />
+                 <Route
+                  path="new"
+                     element={<New inputs={productInputs} title="Add New Event" />}
+                     />
+                </Route>
+            
+                 
+                 </Route>
+                
           </Route>
         </Routes>
       </BrowserRouter>
