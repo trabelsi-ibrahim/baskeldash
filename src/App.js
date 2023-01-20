@@ -16,6 +16,7 @@ import Home2 from "./pages/home2/Home2";
 import List2 from "./pages/list2/List2";
 import Velo2 from "./pages/velo2/Velo2"
 import Evenement2 from "./pages/evenement2/Evenement2";
+import Newc from "./pages/new/Newclub";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -63,7 +64,7 @@ function App() {
                  <Route path=":clubId" element={<Single />} />
                  <Route
                   path="new"
-                     element={<New inputs={clubInputs} title="Add New club" />}
+                     element={<Newc inputs={clubInputs} title="Add New club" />}
                      />
                 </Route>
                 <Route path="admin">
@@ -85,7 +86,7 @@ function App() {
                  <Route path=":evenementId" element={<Single />} />
                  <Route
                   path="new"
-                     element={<New inputs={eventInputs} title="Add New Event" />}
+                     element={<Newc inputs={eventInputs} title="Add New Event" />}
                      />
                 </Route>
             

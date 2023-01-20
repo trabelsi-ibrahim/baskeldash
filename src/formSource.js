@@ -4,6 +4,9 @@ export const userInputs = [
       label: "Cin",
       type: "text",
       placeholder: "00185624",
+      pattern:"[0-9]",
+      size:"8",
+
     },
     {
       id: 3,
@@ -190,7 +193,7 @@ export const userInputs = [
     {
       id: 5,
       label: "Heure",
-      type: "text",
+      type: "time",
       placeholder: "00:25",
     },
     {
