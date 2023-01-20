@@ -4,7 +4,7 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { productInputs, userInputs } from "./formSource";
+import { productInputs, userInputs ,agenceInputs,clubInputs,eventInputs} from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -39,7 +39,7 @@ function App() {
               <Route path=":agenceId" element={<Single />} />
               <Route
                 path="new"
-                element={<New inputs={productInputs} title="Add New Agency" />}
+                element={<New inputs={agenceInputs} title="Add New Agency" />}
               />
               </Route>
               <Route path="velo">
@@ -55,7 +55,7 @@ function App() {
                  <Route path=":evenementId" element={<Single />} />
                  <Route
                   path="new"
-                     element={<New inputs={productInputs} title="Add New Event" />}
+                     element={<New inputs={eventInputs} title="Add New Event" />}
                      />
                 </Route>
                 <Route path="club">
@@ -63,7 +63,7 @@ function App() {
                  <Route path=":clubId" element={<Single />} />
                  <Route
                   path="new"
-                     element={<New inputs={userInputs} title="Add New club" />}
+                     element={<New inputs={clubInputs} title="Add New club" />}
                      />
                 </Route>
                 <Route path="admin">
@@ -85,7 +85,7 @@ function App() {
                  <Route path=":evenementId" element={<Single />} />
                  <Route
                   path="new"
-                     element={<New inputs={productInputs} title="Add New Event" />}
+                     element={<New inputs={eventInputs} title="Add New Event" />}
                      />
                 </Route>
             

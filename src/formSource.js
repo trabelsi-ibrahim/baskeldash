@@ -1,53 +1,151 @@
 export const userInputs = [
     {
       id: 1,
-      label: "Username",
+      label: "Cin",
       type: "text",
-      placeholder: "john_doe",
-    },
-    {
-      id: 2,
-      label: "Name and surname",
-      type: "text",
-      placeholder: "John Doe",
+      placeholder: "00185624",
     },
     {
       id: 3,
+      label: "Nom",
+      type: "text",
+      placeholder: "ali",
+    },
+    {
+      id: 2,
       label: "Email",
       type: "mail",
       placeholder: "john_doe@gmail.com",
     },
     {
       id: 4,
-      label: "Phone",
+      label: "Prenom",
       type: "text",
-      placeholder: "+1 234 567 89",
+      placeholder: "saleh",
     },
     {
       id: 5,
-      label: "Password",
-      type: "password",
+      label: "Numero Telephone",
+      type: "tel",
+      placeholder: "24 287 239"
     },
     {
       id: 6,
       label: "Address",
       type: "text",
-      placeholder: "Elton St. 216 NewYork",
+      placeholder: "Monastir R6",
     },
-    {
-      id: 7,
-      label: "Country",
-      type: "text",
-      placeholder: "USA",
-    },
+    
   ];
   
   export const productInputs = [
     {
       id: 1,
-      label: "Title",
+      label: "Id agence",
       type: "text",
-      placeholder: "Apple Macbook Pro",
+      placeholder: "",
+    },
+    {
+      id: 2,
+      label: "id velo",
+      type: "text",
+      placeholder: "",
+    },
+    {
+      id: 3,
+      label: "Type",
+      type: "enum('bike','scooter')",
+      placeholder: "bike/scooter",
+    },
+    {
+      id: 4,
+      label: "Marque",
+      type: "text",
+      placeholder: "xxxxx",
+    },
+    {
+      id: 5,
+      label: "Nom",
+      type: "text",
+      placeholder: "ixxxxx",
+    },
+    {
+      id: 6,
+      label: "Prix",
+      type: "double",
+      placeholder: "20",
+    },
+    {
+      id: 7,
+      label: "Couleur",
+      type: "text",
+      placeholder: "noir",
+    },
+    {
+      id: 8,
+      label: "Rate",
+      type: "double",
+      placeholder: "2.5",
+    },
+    {
+      id: 9,
+      label: "Vitesse",
+      type: "double",
+      placeholder: "30km/h",
+    },
+    {
+      id: 10,
+      label: "Description",
+      type: "text",
+      placeholder: "Description",
+    },
+  ];
+
+  export const agenceInputs = [
+    {
+      id: 1,
+      label: "Nom d'agence",
+      type: "text",
+      placeholder: "Bike rent",
+    },
+    {
+      id: 2,
+      label: "Adresse",
+      type: "adresse",
+      placeholder: "Monastir el falez ",
+    },
+    {
+      id: 3,
+      label: "Email",
+      type: "mail",
+      placeholder: "bike_rent@gmail.com",
+    },
+    {
+      id: 4,
+      label: "Phone",
+      type: "phone",
+      placeholder: "74 216 314",
+    },
+   
+    {
+      id: 5,
+      label: "Site web",
+      type: "text",
+      placeholder: "bike_rent.com",
+    },
+    {
+      id: 6,
+      label: "Description",
+      type: "text",
+      placeholder: "Description",
+    },
+  ];
+  export const clubInputs = [
+    {
+      id: 1,
+      label: "Nom de club",
+      type: "text",
+      placeholder: "Club de velo",
     },
     {
       id: 2,
@@ -57,21 +155,55 @@ export const userInputs = [
     },
     {
       id: 3,
-      label: "Category",
+      label: "Adresse",
+      type: "adresse",
+      placeholder: "Monastir R6 ",
+    },
+    
+    
+  ];
+  export const eventInputs = [
+    {
+      id: 1,
+      label: "Id club",
       type: "text",
-      placeholder: "Computers",
+      placeholder: "",
+    },
+    {
+      id: 2,
+      label: "Id evenement",
+      type: "text",
+      placeholder: "",
+    },
+    {
+      id: 3,
+      label: "Id piste",
+      type: "text",
+      placeholder: "",
     },
     {
       id: 4,
-      label: "Price",
-      type: "text",
-      placeholder: "100",
+      label: "Date",
+      type: "Date",
+      placeholder: "03/03/2023",
     },
     {
       id: 5,
-      label: "Stock",
+      label: "Heure",
       type: "text",
-      placeholder: "in stock",
+      placeholder: "00:25",
+    },
+    {
+      id: 6,
+      label: "Adresse",
+      type: "adresse",
+      placeholder: "Moanstir stah jaber",
+    },
+    {
+      id: 7,
+      label: "Description",
+      type: "text",
+      placeholder: "Description",
     },
   ];
   
