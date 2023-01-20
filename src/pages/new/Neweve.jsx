@@ -4,7 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 
-const Newc = ({ inputs, title }) => {
+const Newe = ({ inputs, title }) => {
   const [file, setFile] = useState("");
 
   return (
@@ -42,18 +42,33 @@ const Newc = ({ inputs, title }) => {
 
               
                 <div className="formInput" >
-                  <label>Nom de club</label>
-                  <input type="text" placeholder="club de velo" />
+                  <label>Id Club</label>
+                  <input type="text" placeholder=""  max="8"/>
                 </div>
                 <div className="formInput" key="1">
+                  <label>Id evenement</label>
+                  <input type="text" placeholder="" max ="8"maxLength="8" />
+                </div>
+                <div className="formInput" >
+                  <label>Id piste</label>
+                  <input type="text" placeholder=""maxLength="8" />
+                </div>
+                <div className="formInput" >
+                  <label>Date</label>
+                  <input type="date" placeholder=""/>
+                </div>
+                <div className="formInput" >
+                  <label>Heure</label>
+                  <input type="time" placeholder=""  />
+                </div>
+                <div className="formInput" >
+                  <label>Address</label>
+                  <input type="text" placeholder="Monastir R6" />
+                </div>
+                <div className="formInput" >
                   <label>Description</label>
                   <input type="text" placeholder="Description" />
                 </div>
-                <div className="formInput" >
-                  <label>Adresse</label>
-                  <input type="text" placeholder="Monastir R6" />
-                </div>
-              
               <button>Send</button>
             </form>
           </div>
@@ -63,4 +78,4 @@ const Newc = ({ inputs, title }) => {
   );
 };
 
-export default Newc;
+export default Newe;

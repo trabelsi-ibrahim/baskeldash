@@ -17,6 +17,10 @@ import List2 from "./pages/list2/List2";
 import Velo2 from "./pages/velo2/Velo2"
 import Evenement2 from "./pages/evenement2/Evenement2";
 import Newc from "./pages/new/Newclub";
+import Newu from "./pages/new/Newuser"
+import Newa from "./pages/new/Newag";
+import Newv from "./pages/new/Newbike";
+import Newe from "./pages/new/Neweve";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -32,7 +36,7 @@ function App() {
               <Route path=":userId" element={<Single />} />
               <Route
                 path="new"
-                element={<New inputs={userInputs} title="Add New User" />}
+                element={<Newu inputs={userInputs} title="Add New User" />}
               />
             </Route>
             <Route path="agence">
@@ -40,7 +44,7 @@ function App() {
               <Route path=":agenceId" element={<Single />} />
               <Route
                 path="new"
-                element={<New inputs={agenceInputs} title="Add New Agency" />}
+                element={<Newa inputs={agenceInputs} title="Add New Agency" />}
               />
               </Route>
               <Route path="velo">
@@ -48,7 +52,7 @@ function App() {
                  <Route path=":veloId" element={<Single />} />
                    <Route
                      path="new"
-                      element={<New inputs={productInputs} title="Add New Bike" />}
+                      element={<Newv inputs={productInputs} title="Add New Bike" />}
                       />
               </Route>
                 <Route path="evenement">
@@ -56,7 +60,7 @@ function App() {
                  <Route path=":evenementId" element={<Single />} />
                  <Route
                   path="new"
-                     element={<New inputs={eventInputs} title="Add New Event" />}
+                     element={<Newe inputs={eventInputs} title="Add New Event" />}
                      />
                 </Route>
                 <Route path="club">
@@ -78,7 +82,7 @@ function App() {
                  <Route path=":veloId" element={<Single />} />
                    <Route
                      path="new"
-                      element={<New inputs={productInputs} title="Add New Bike" />}
+                      element={<Newv inputs={productInputs} title="Add New Bike" />}
                       />
               </Route>
               <Route path="evenement">

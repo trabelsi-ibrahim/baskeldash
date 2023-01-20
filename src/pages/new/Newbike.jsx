@@ -4,7 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 
-const Newc = ({ inputs, title }) => {
+const Newv = ({ inputs, title }) => {
   const [file, setFile] = useState("");
 
   return (
@@ -42,16 +42,46 @@ const Newc = ({ inputs, title }) => {
 
               
                 <div className="formInput" >
-                  <label>Nom de club</label>
-                  <input type="text" placeholder="club de velo" />
+                  <label>Id agence</label>
+                  <input type="text" placeholder=""  maxLength={8}/>
                 </div>
                 <div className="formInput" key="1">
-                  <label>Description</label>
-                  <input type="text" placeholder="Description" />
+                  <label>Id velo</label>
+                  <input type="text" placeholder="" maxLength={8} />
                 </div>
                 <div className="formInput" >
-                  <label>Adresse</label>
-                  <input type="text" placeholder="Monastir R6" />
+                  <label>Type</label>
+                  <input type="text" placeholder="bike/scooter" />
+                </div>
+                <div className="formInput" >
+                  <label>Marque</label>
+                  <input type="text"placeholder=""/>
+                </div>
+                <div className="formInput" >
+                  <label>Nom</label>
+                  <input type="text" placeholder=""  />
+                </div>
+                <div className="formInput" >
+                  <label>Prix</label>
+                  <input type="number" placeholder="20 TND" />
+                </div>
+                <div className="formInput" >
+                  <label>Couleur</label>
+                  <input type="text" placeholder="noir" />
+                </div>
+                <div className="formInput" >
+                  <label>Rate</label>
+                  <input type="number" placeholder="0.00" min={0.00} max={10.00} step={0.1} />
+                </div>
+                <div className="formInput" >
+                  <label>Vitesse</label>
+                  <input type="number" placeholder="20.00" step={0.1} />
+
+                </div>
+                <div className="formInput" >
+                  <label>Description</label>
+                  <input type="text" placeholder="Description"  />
+                  
                 </div>
               
               <button>Send</button>
@@ -63,4 +93,4 @@ const Newc = ({ inputs, title }) => {
   );
 };
 
-export default Newc;
+export default Newv;

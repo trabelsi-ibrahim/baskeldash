@@ -4,7 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 
-const Newc = ({ inputs, title }) => {
+const Newa = ({ inputs, title }) => {
   const [file, setFile] = useState("");
 
   return (
@@ -42,16 +42,29 @@ const Newc = ({ inputs, title }) => {
 
               
                 <div className="formInput" >
-                  <label>Nom de club</label>
-                  <input type="text" placeholder="club de velo" />
+                  <label>Nom d'agence</label>
+                  <input type="text" placeholder="bike rent"/>
+                </div>
+                <div className="formInput" key="1">
+                  <label>Adresse</label>
+                  <input type="text" placeholder="Monastir falez" />
+                </div>
+                <div className="formInput" >
+                  <label>E-mail</label>
+                  <input type="mail" placeholder="bike_rent@gmail.com" />
+                </div>
+
+                <div className="formInput" >
+                  <label>Numero telephone</label>
+                  <input type="tel" placeholder="25 478 124" pattern="[2][0-9]{8}" />
+                </div>
+                <div className="formInput" >
+                  <label>Site web</label>
+                  <input type="url" placeholder="bike_rent.com" />
                 </div>
                 <div className="formInput" key="1">
                   <label>Description</label>
-                  <input type="text" placeholder="Description" />
-                </div>
-                <div className="formInput" >
-                  <label>Adresse</label>
-                  <input type="text" placeholder="Monastir R6" />
+                  <input type="text" placeholder="Description" aria-required/>
                 </div>
               
               <button>Send</button>
@@ -63,4 +76,4 @@ const Newc = ({ inputs, title }) => {
   );
 };
 
-export default Newc;
+export default Newa;
