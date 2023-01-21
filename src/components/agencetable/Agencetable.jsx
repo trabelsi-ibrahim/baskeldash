@@ -1,11 +1,12 @@
 import "./agencetable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
+import { agencyRows, agencyColumns } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Datatable = () => {
-  const [data, setData] = useState(userRows);
+  const [data, setData] = useState(agencyRows);
+  
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
@@ -19,8 +20,8 @@ const Datatable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
-              <div className="viewButton">View</div>
+            <Link to={`/agence/${params.row.id}`} style={{ textDecoration: "none" }} activeClassName="current">
+           <div className="viewButton">View</div>
             </Link>
             <div
               className="deleteButton"
@@ -44,7 +45,7 @@ const Datatable = () => {
       <DataGrid
         className="datagrid"
         rows={data}
-        columns={userColumns.concat(actionColumn)}
+        columns={agencyColumns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection

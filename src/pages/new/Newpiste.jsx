@@ -4,7 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 
-function Newu  ({title})  {
+const Newp = ({ inputs, title }) => {
   const [file, setFile] = useState("");
 
   return (
@@ -42,28 +42,16 @@ function Newu  ({title})  {
 
               
                 <div className="formInput" >
-                  <label>Cin</label>
-                  <input type="text" placeholder="00864574" pattern="[0-9]{8}" max="8"/>
+                  <label>Nom de piste</label>
+                  <input type="text" placeholder="piste de falez" />
                 </div>
                 <div className="formInput" key="1">
-                  <label>Nom</label>
-                  <input type="text" placeholder="ali" />
+                  <label>Description</label>
+                  <input type="text" placeholder="Description" />
                 </div>
                 <div className="formInput" >
-                  <label>Prenom</label>
-                  <input type="text" placeholder="Ben saleh" />
-                </div>
-                <div className="formInput" >
-                  <label>E-mail</label>
-                  <input type="mail" placeholder="ali-bensale@gmail.com"/>
-                </div>
-                <div className="formInput" >
-                  <label>Numero telephone</label>
-                  <input type="tel" placeholder="25 478 124" pattern="[2][0-9]{8}" />
-                </div>
-                <div className="formInput" >
-                  <label>Address</label>
-                  <input type="text" placeholder="Monastir R6" />
+                  <label>Ville</label>
+                  <input type="text" placeholder="Monastir/Sousse" />
                 </div>
               
               <button>Send</button>
@@ -75,4 +63,4 @@ function Newu  ({title})  {
   );
 };
 
-export default Newu;
+export default Newp;

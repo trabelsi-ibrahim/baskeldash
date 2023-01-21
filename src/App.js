@@ -12,6 +12,7 @@ import Agence from "./pages/agence/Agence";
 import Velo from "./pages/velo/Velo";
 import Evenement from "./pages/evenement/Evenement";
 import Club from "./pages/club/Club";
+import Piste from "./pages/piste/Piste";
 import Home2 from "./pages/home2/Home2";
 import List2 from "./pages/list2/List2";
 import Velo2 from "./pages/velo2/Velo2"
@@ -21,6 +22,13 @@ import Newu from "./pages/new/Newuser"
 import Newa from "./pages/new/Newag";
 import Newv from "./pages/new/Newbike";
 import Newe from "./pages/new/Neweve";
+import Newp from "./pages/new/Newpiste";
+import Single2 from "./pages/single/Singleag";
+import Singleu from "./pages/single/Singleuse";
+import Singlev from "./pages/single/Singlevelo";
+import Singlee from "./pages/single/Singleeve";
+import Singlec from "./pages/single/Singleclub";
+import Singlep from "./pages/single/Singlepiste";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -33,7 +41,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="users">
               <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
+              <Route path=":id" element={<Singleu />} />
               <Route
                 path="new"
                 element={<Newu inputs={userInputs} title="Add New User" />}
@@ -41,7 +49,7 @@ function App() {
             </Route>
             <Route path="agence">
               <Route index element={<Agence />} />
-              <Route path=":agenceId" element={<Single />} />
+              <Route path=":id" element={<Single2 />} />
               <Route
                 path="new"
                 element={<Newa inputs={agenceInputs} title="Add New Agency" />}
@@ -49,7 +57,7 @@ function App() {
               </Route>
               <Route path="velo">
                <Route index element={<Velo />} />
-                 <Route path=":veloId" element={<Single />} />
+                 <Route path=":id" element={<Singlev />} />
                    <Route
                      path="new"
                       element={<Newv inputs={productInputs} title="Add New Bike" />}
@@ -57,7 +65,7 @@ function App() {
               </Route>
                 <Route path="evenement">
                  <Route index element={<Evenement />} />
-                 <Route path=":evenementId" element={<Single />} />
+                 <Route path=":id" element={<Singlee />} />
                  <Route
                   path="new"
                      element={<Newe inputs={eventInputs} title="Add New Event" />}
@@ -65,10 +73,18 @@ function App() {
                 </Route>
                 <Route path="club">
                  <Route index element={<Club />} />
-                 <Route path=":clubId" element={<Single />} />
+                 <Route path=":id" element={<Singlec />} />
                  <Route
                   path="new"
                      element={<Newc inputs={clubInputs} title="Add New club" />}
+                     />
+                </Route>
+                <Route path="piste">
+                 <Route index element={<Piste />} />
+                 <Route path=":id" element={<Singlep />} />
+                 <Route
+                  path="new"
+                     element={<Newp inputs={clubInputs} title="Add New piste" />}
                      />
                 </Route>
                 <Route path="admin">
@@ -79,7 +95,7 @@ function App() {
               </Route>
               <Route path="velo">
                <Route index element={<Velo2 />} />
-                 <Route path=":veloId" element={<Single />} />
+                 <Route path=":id" element={<Single />} />
                    <Route
                      path="new"
                       element={<Newv inputs={productInputs} title="Add New Bike" />}
