@@ -66,6 +66,7 @@ function Datatable() {
         className="datagrid"
         rows={data}
         columns={agencyColumns.concat(actionColumn)}
+        getRowId={(row) => row?.id}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection

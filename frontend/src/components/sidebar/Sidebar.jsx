@@ -89,8 +89,10 @@ const Sidebar = () => {
             <span>Publicite</span>
           </li>
           <li>
+          <Link to="/location" style={{ textDecoration: "none" }}>
             <NotificationsNoneIcon className="icon" />
             <span>Notifications</span>
+            </Link>
           </li>
           
           <p className="title">USER</p>

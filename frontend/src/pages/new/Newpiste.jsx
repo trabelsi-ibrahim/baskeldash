@@ -26,7 +26,7 @@ function handle(e){
 
 function submit(e){
   e.preventDefault(); 
-  fetch("http://localhost:3005/API/piste_cyclable",{
+  fetch("http://localhost:3010/piste_cyclable/createPis",{
     method:"POST",
     CrossDomain:true,
     headers:{

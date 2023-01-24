@@ -14,7 +14,7 @@ function Newe  ({title})  {
             heure: "",
             adresse: "",
             description: "",
-            image: ""
+            //image: ""
 
   })
 
@@ -75,7 +75,7 @@ function submit(e){
                 <input
                   type="file"
                   id="file"
-                  onChange={(e) => setFile(e.target.files[0])}
+                  //onChange={(e) => setFile(e.target.files[0])}
                   style={{ display: "none" }}
                 />
               </div>

@@ -13,7 +13,22 @@ const Singlee = () => {
   const idNumber = Number(id);
 console.log(idNumber);
   const [user, setUser] = useState({});
-
+  const [data, setData] = useState([]);
+  useEffect(()=>{
+    async function fetchEventList(){
+      try{
+        const reqUrl='http://localhost:3010/event/getEvent/${idNumber}'
+        const reponse = await fetch(reqUrl)
+        const repJson = await reponse.json();
+        console.log("rep",repJson);
+        console.log(typeof(repJson))
+        setData(repJson.data);
+        console.log("le data: ",data);
+      }catch{}
+    }
+    fetchEventList();},[]);
+    
+ 
   useEffect(() => {
     const fetchUser = async () => {
       console.log(eventRows.map(user => user.id));

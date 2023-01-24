@@ -33,6 +33,7 @@ import Login from "./components/login_signup/login";
 import { Router } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Main from "./pages/mainpage/main";
+import Loc from "./pages/location/Location";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -95,6 +96,14 @@ function App() {
                  <Route
                   path="new"
                      element={<Newp inputs={clubInputs} title="Add New piste" />}
+                     />
+                </Route>
+                <Route path="location">
+                 <Route index element={<Loc />} />
+                 <Route path=":id" element={<Singlee />} />
+                 <Route
+                  path="new"
+                     element={<Newe inputs={eventInputs} title="Add New Event" />}
                      />
                 </Route>
                 <Route path="admin">

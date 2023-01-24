@@ -11,7 +11,7 @@ const Datatable = () => {
   useEffect(()=>{
     async function fetchUserList(){
       try{
-        const reqUrl='http://localhost:3002/client/getCl'
+        const reqUrl='http://localhost:3010/client/getCl'
         const reponse = await fetch(reqUrl)
         const repJson = await reponse.json();
 

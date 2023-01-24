@@ -1,7 +1,7 @@
 
 import "./pistetable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { pisteRows, pisteColumns } from "../../datatablesource";
+import { pisteRows, pisteColumns,locationColumns } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 
@@ -11,7 +11,7 @@ const Datatable = () => {
   useEffect(()=>{
     async function fetchAgList(){
       try{
-        const reqUrl='http://localhost:3010/piste/getPist'
+        const reqUrl='http://localhost:3010/location/getLoc'
         const reponse = await fetch(reqUrl)
         const repJson = await reponse.json();
         console.log("rep",repJson);
@@ -61,7 +61,8 @@ const Datatable = () => {
       <DataGrid
         className="datagrid"
         rows={data}
-        columns={pisteColumns.concat(actionColumn)}
+        columns={locationColumns.concat(actionColumn)}
+        getRowId={(row) => row?.cin}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection

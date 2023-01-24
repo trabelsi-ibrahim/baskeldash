@@ -28,7 +28,7 @@ function handle(e){
 
 function submit(e){
   e.preventDefault(); 
-  fetch("http://localhost:3005/API/organization",{
+  fetch("http://localhost:3010/organization/createOrg",{
     method:"POST",
     CrossDomain:true,
     headers:{
