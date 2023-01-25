@@ -7,13 +7,14 @@ import { useState } from "react";
 function Newa ({  title }) {
   const [file, setFile] = useState("");
   const [data,setData]= useState({
+    id_agence:"",
     nom:"",
     adresse:"",
     description:"",
     photo:"",
     email:"",
     website:"",
-    telephone:""
+
 
   })
 
@@ -27,23 +28,32 @@ function handle(e){
 }
 
 
-function submit(e){
+const submit = async (e)=>{
   e.preventDefault(); 
-  fetch("http://localhost:3010/agence/createAg",{
-    method:"POST",
-    CrossDomain:true,
-    headers:{
-      "Content-Type":"application/json",
-      Accept : "application/json",
-      "Access-Control-Allow-Origin":"*",
-    },
-    body:JSON.stringify(
-     data
-    ),
+  try {
+    const reqUrl = "http://localhost:3010/agence/createAg";
+    const response = await fetch(reqUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    const result = await response.json();
+    console.log(result); // this will print the response from the server
+    if (result.success === 1) {
+     
+    if (result.data.success === 0) {
+      alert(result.data.message);
+      
+    }}
+  } catch (error) {
+    console.error(error);
+  }
+};
+  
+   // this will print the response from the server
+   
 
-  }).then((res)=>res.json())
-  .then((data)=>{console.log("le data : ",data);});
-}
+
   return (
     <div className="new">
       <Sidebar />
@@ -77,7 +87,13 @@ function submit(e){
                 />
               </div>
 
-              
+              <div className="formInput" >
+                  <label>Id agence</label>
+                  <input type="text" placeholder="bike rent"
+                  id="id_agence"
+                  value={(data.id_agence)}
+                  onChange={(e)=>handle(e)}/>
+                </div>
                 <div className="formInput" >
                   <label>Nom d'agence</label>
                   <input type="text" placeholder="bike rent"
@@ -104,13 +120,7 @@ function submit(e){
                   onChange={(e)=>handle(e)} />
                 </div>
 
-                <div className="formInput" >
-                  <label>Numero telephone</label>
-                  <input type="tel" placeholder="25 478 124" 
-                  id="telephone"
-                  value={(data.telephone)}
-                  onChange={(e)=>handle(e)} />
-                </div>
+               
 
 
                 <div className="formInput" >

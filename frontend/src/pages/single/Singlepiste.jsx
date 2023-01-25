@@ -14,21 +14,20 @@ const Singlep = () => {
 console.log(idNumber);
   const [user, setUser] = useState({});
 
+  const fetchData = async (id) => {
+    try {
+      const reqUrl = `http://localhost:3010/piste/${id}`;
+      const response = await fetch(reqUrl);
+      const data = await response.json();
+      setUser(data.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  console.log(user);
   useEffect(() => {
-    const fetchUser = async () => {
-      console.log(pisteRows.map(user => user.id));
-      console.log(pisteRows);
-      const userData = pisteRows.find(({ id: dataId }) => dataId === idNumber);
-      if (userData) {
-        console.log(`Found item:`, userData);
-        setUser(userData);
-      } else {
-        console.log(`No item found with id: ${id}`);
-      }
-    };
-    fetchUser();
+    fetchData(id);
   }, [id]);
-  
   return (
     <div className="single">
       <Sidebar />

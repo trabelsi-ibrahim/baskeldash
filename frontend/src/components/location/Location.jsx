@@ -36,15 +36,10 @@ const Datatable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to={`/piste/${params.row.id}`} style={{ textDecoration: "none" }} activeClassName="current">
+            <Link to={`/location/${params.row.email}`} style={{ textDecoration: "none" }} activeClassName="current">
            <div className="viewButton">View</div>
             </Link>
-            <div
-              className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}
-            >
-              Delete
-            </div>
+           
           </div>
         );
       },
@@ -53,16 +48,14 @@ const Datatable = () => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New Piste
-        <Link to="/piste/new" className="link">
-          Add New
-        </Link>
+        Liste de location
+        
       </div>
       <DataGrid
         className="datagrid"
         rows={data}
         columns={locationColumns.concat(actionColumn)}
-        getRowId={(row) => row?.cin}
+        getRowId={(row) => row?.email}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection

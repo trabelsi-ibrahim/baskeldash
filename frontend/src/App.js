@@ -34,6 +34,7 @@ import { Router } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Main from "./pages/mainpage/main";
 import Loc from "./pages/location/Location";
+import Singlel from "./pages/single/Singleloc";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -100,7 +101,7 @@ function App() {
                 </Route>
                 <Route path="location">
                  <Route index element={<Loc />} />
-                 <Route path=":id" element={<Singlee />} />
+                 <Route path=":email" element={<Singlel />} />
                  <Route
                   path="new"
                      element={<Newe inputs={eventInputs} title="Add New Event" />}

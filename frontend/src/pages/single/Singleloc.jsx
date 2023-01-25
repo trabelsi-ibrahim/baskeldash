@@ -3,21 +3,19 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
 import List from "../../components/table/Table";
-import { veloRows } from '../../datatablesource';
+import { agencyRows } from '../../datatablesource';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { agencyRows } from "../../datatablesource";
-const Singlev = () => {
-  const { id } = useParams();
-  console.log(id);
-  const idNumber = Number(id);
-console.log(idNumber);
-  const [user, setUser] = useState({});
+
+const Singlel = () => {
+  const { email } = useParams();
+  console.log(email);
   const [ag, setAg] = useState({});
+  const [user, setUser] = useState({});
 
   const fetchData = async (id) => {
     try {
-      const reqUrl = `http://localhost:3010/vehicule/${id}`;
+      const reqUrl = `http://localhost:3010/location/${id}`;
       const response = await fetch(reqUrl);
       const data = await response.json();
       setUser(data.data);
@@ -27,9 +25,11 @@ console.log(idNumber);
   };
   console.log(user);
   useEffect(() => {
-    fetchData(id);
-  }, [id]);
+    fetchData(email);
+  }, [email]);
   
+  const [id, setId] = useState(user.id_agence);
+
   const fetchData2 = async (id) => {
     try {
       const reqUrl = `http://localhost:3010/agence/getAg/${id}`;
@@ -42,9 +42,10 @@ console.log(idNumber);
   };
   console.log(ag);
   useEffect(() => {
+    if(user.id_agence)
     fetchData2(user.id_agence);
-  }, [id]);
-  
+  }, [user.id_agence]);
+  console.log(ag)
   return (
     <div className="single">
       <Sidebar />
@@ -56,51 +57,45 @@ console.log(idNumber);
             <h1 className="title">Information</h1>
             <div className="item">
               <img
-                src="https://cdn-icons-png.flaticon.com/512/3198/3198336.png"
-
-                //{user.image}
+                src="https://cdn-icons-png.flaticon.com/512/3595/3595835.png" 
+                //{user.photo}
                 alt=""
                 className="itemImg"
               />
               <div className="details">
-                <h1 className="itemTitle">{user.nom}</h1>
+                <h1 className="itemTitle"></h1>
                 <div className="detailItem">
-                  <span className="itemKey">Type:</span>
-                  <span className="itemValue">{user.type}</span>
+                  <span className="itemKey">Email: </span>
+                  <span className="itemValue">{user.email}</span>
+                </div>
+                
+                <div className="detailItem">
+                  <span className="itemKey">Id velo: </span>
+                  <span className="itemValue">{user.id_vehicule}</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Marque:</span>
-                  <span className="itemValue">{user.marque}</span>
+                  <span className="itemKey">Id agence: </span>
+                  <span className="itemValue">{user.id_agence}</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Vitesse:</span>
-                  <span className="itemValue">{user.speed}</span>
+                  <span className="itemKey">Nom d'agence: </span>
+                  <span className="itemValue">{ag.nom}</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Rate:</span>
-                  <span className="itemValue">{user.rate}</span>
+                  <span className="itemKey">Date: </span>
+                  <span className="itemValue">{user.date}</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Id velo:</span>
-                  <span className="itemValue">{user.id}</span>
-                </div>
-                <div className="detailItem">
-                  <span className="itemKey">Id agence:</span>
-                  <span className="itemValue">{user.id_agence} </span>
-                </div>
-                <div className="detailItem">
-                  <span className="itemKey">Description:</span>
-                  <span className="itemValue">{user.description}</span>
+                  <span className="itemKey">Periode: </span>
+                  <span className="itemValue">{user.periode} jour(s)</span>
                 </div>
               </div>
             </div> 
           </div>
-         
-        </div>
-        
+          </div>
       </div>
     </div>
   );
 };
 
-export default Singlev;
+export default Singlel;

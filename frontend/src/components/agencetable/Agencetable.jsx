@@ -26,11 +26,17 @@ function Datatable() {
     
 
 
-    const handleDelete = (id) => {
-      setData(data.filter((item) => item.id !== id));
+    const handleDelete = async (id) => {
+      if (window.confirm("Are you sure you want to delete this item?")) {
+        try {
+          const reqUrl = `http://localhost:3010/agence/${id}`;
+          await fetch(reqUrl, { method: "DELETE" });
+          setData(prevData => prevData.filter(item => item.id !== id));
+        } catch (error) {
+          console.error(error);
+        }
+      }
     };
-
-
 
   const actionColumn = [
     {
@@ -40,12 +46,12 @@ function Datatable() {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to={`/agence/${params.row.id}`} style={{ textDecoration: "none" }} activeClassName="current">
+            <Link to={`/agence/${params.row.id_agence}`} style={{ textDecoration: "none" }} activeClassName="current">
            <div className="viewButton">View</div>
             </Link>
             <div
               className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row.id_agence)}
             >
               Delete
             </div>
@@ -66,7 +72,7 @@ function Datatable() {
         className="datagrid"
         rows={data}
         columns={agencyColumns.concat(actionColumn)}
-        getRowId={(row) => row?.id}
+        getRowId={(row) => row?.id_agence}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection

@@ -26,24 +26,28 @@ function handle(e){
   console.log(newdata)
 }
 
-
-function submit(e){
+const submit = async (e)=>{
   e.preventDefault(); 
-  fetch("http://localhost:3010/client/createCl",{
-    method:"POST",
-    CrossDomain:true,
-    headers:{
-      "Content-Type":"application/json",
-      Accept : "application/json",
-      "Access-Control-Allow-Origin":"*",
-    },
-    body:JSON.stringify(
-     data
-    ),
+  try {
+    const reqUrl = "http://localhost:3010/client/createCl";
+    const response = await fetch(reqUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    const result = await response.json();
+    console.log(result); // this will print the response from the server
+    if (result.success === 1) {
+     
+    if (result.data.success === 0) {
+      alert(result.data.message);
+      
+    }}
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-  }).then((res)=>res.json())
-  .then((data)=>{console.log("le data : ",data);});
-}
 
 
 

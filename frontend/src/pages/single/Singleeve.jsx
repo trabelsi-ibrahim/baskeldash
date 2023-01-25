@@ -14,35 +14,24 @@ const Singlee = () => {
 console.log(idNumber);
   const [user, setUser] = useState({});
   const [data, setData] = useState([]);
-  useEffect(()=>{
-    async function fetchEventList(){
-      try{
-        const reqUrl='http://localhost:3010/event/getEvent/${idNumber}'
-        const reponse = await fetch(reqUrl)
-        const repJson = await reponse.json();
-        console.log("rep",repJson);
-        console.log(typeof(repJson))
-        setData(repJson.data);
-        console.log("le data: ",data);
-      }catch{}
-    }
-    fetchEventList();},[]);
-    
- 
-  useEffect(() => {
-    const fetchUser = async () => {
-      console.log(eventRows.map(user => user.id));
-      console.log(eventRows);
-      const userData = eventRows.find(({ id: dataId }) => dataId === idNumber);
-      if (userData) {
-        console.log(`Found item:`, userData);
-        setUser(userData);
-      } else {
-        console.log(`No item found with id: ${id}`);
+  
+    const fetchData = async (id) => {
+      try {
+        const reqUrl = `http://localhost:3010/event/getEvent/${id}`;
+        const response = await fetch(reqUrl);
+        const data = await response.json();
+        setUser(data.message);
+      } catch (error) {
+        console.error(error);
       }
     };
-    fetchUser();
-  }, [id]);
+    console.log(user);
+    useEffect(() => {
+      fetchData(id);
+    }, [id]);
+    
+  console.log(user.id)
+
   
   return (
     <div className="single">
@@ -55,19 +44,20 @@ console.log(idNumber);
             <h1 className="title">Information</h1>
             <div className="item">
               <img
-                src={user.img}
+                src="https://cdn-icons-png.flaticon.com/512/9353/9353711.png"
+                //{user.img}
                 alt=""
                 className="itemImg"
               />
               <div className="details">
-                <h1 className="itemTitle">{user.nom}</h1>
+                <h1 className="itemTitle"></h1>
                 <div className="detailItem">
                   <span className="itemKey">Id evenement:</span>
                   <span className="itemValue">{user.id}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Id club:</span>
-                  <span className="itemValue">{user.id_organisation}</span>
+                  <span className="itemValue">{user.id_organization}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Id piste:</span>
@@ -92,14 +82,7 @@ console.log(idNumber);
               </div>
             </div> 
           </div>
-          <div className="right">
-            <Chart aspect={3 / 1} title="User Spending ( Last 6 Months)" />
           </div>
-        </div>
-        <div className="bottom">
-        <h1 className="title">Last Transactions</h1>
-          <List data={user.transactions}/>
-        </div>
       </div>
     </div>
   );

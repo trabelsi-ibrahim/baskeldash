@@ -14,7 +14,7 @@ function Newe  ({title})  {
             heure: "",
             adresse: "",
             description: "",
-            //image: ""
+            image: ""
 
   })
 
@@ -28,24 +28,28 @@ function handle(e){
 }
 
 
-function submit(e){
+
+const submit = async (e)=>{
   e.preventDefault(); 
-  fetch("http://localhost:3010/event/createEvent",{
-    method:"POST",
-    CrossDomain:true,
-    headers:{
-      "Content-Type":"application/json",
-      Accept : "application/json",
-      "Access-Control-Allow-Origin":"*",
-    },
-    body:JSON.stringify(
-     data
-    ),
-
-  }).then((res)=>res.json())
-  .then((data)=>{console.log("le data : ",data);});
-}
-
+  try {
+    const reqUrl = "http://localhost:3010/event/createEvent";
+    const response = await fetch(reqUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    const result = await response.json();
+    console.log(result); // this will print the response from the server
+    if (result.success === 1) {
+     
+    if (result.data.success === 0) {
+      alert(result.data.message);
+      
+    }}
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   return (
     <div className="new">
@@ -75,7 +79,7 @@ function submit(e){
                 <input
                   type="file"
                   id="file"
-                  //onChange={(e) => setFile(e.target.files[0])}
+                  onChange={(e) => setFile(e.target.files[0])}
                   style={{ display: "none" }}
                 />
               </div>

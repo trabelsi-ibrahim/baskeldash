@@ -38,7 +38,7 @@ export const userColumns = [
     },
   ];
   export const agencyColumns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "id_agence", headerName: "ID", width: 70 },
     {
       field: "photo",
       headerName: "User",
@@ -46,7 +46,7 @@ export const userColumns = [
       renderCell: (params) => {
         return (
           <div className="cellWithImg">
-            <img className="cellImg" src={params.row.photo} alt="avatar" />
+            <img className="cellImg" src="https://cdn-icons-png.flaticon.com/512/3595/3595835.png" alt="avatar" />
             {params.row.username}
           </div>
         );
@@ -56,7 +56,7 @@ export const userColumns = [
     { field: "adresse", headerName: "Adresse", width: 200 },
     { field: "website", headerName: "Site Web", width: 200 },
     { field: "email", headerName: "Email", width: 200 },
-    { field: "phone", headerName: "Phone", width: 200 },
+    
   ];
   export const useColumns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -67,8 +67,8 @@ export const userColumns = [
       renderCell: (params) => {
         return (
           <div className="cellWithImg">
-            <img className="cellImg" src={params.row.image} alt="avatar" />
-            {params.row.username}
+            <img className="cellImg" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" />
+           
           </div>
         );
       },
@@ -90,7 +90,7 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.image} alt="avatar" />
+          <img className="cellImg" src="https://cdn-icons-png.flaticon.com/512/3198/3198336.png" alt="avatar" />
           {params.row.username}
         </div>
       );
@@ -117,15 +117,15 @@ export const userColumns = [
       renderCell: (params) => {
         return (
           <div className="cellWithImg">
-            <img className="cellImg" src={params.row.img} alt="avatar" />
+            <img className="cellImg" src="https://cdn-icons-png.flaticon.com/512/9353/9353711.png" alt="avatar" />
             {params.row.username}
           </div>
         );
       },
       },
-      { field: "id_organisation", headerName: "ID Club", width: 100 },
+      { field: "id_organization", headerName: "ID Club", width: 100 },
       { field: "id_piste", headerName: "ID Piste", width: 100 },
-      { field: "date", headerName: "Date", width: 150 },
+      { field: "date", headerName: "Date", width: 200 },
       { field: "heure", headerName: "Heure", width: 100 },
       { field: "adresse", headerName: "Adresse", width: 200 },
       //{ field: "description", headerName: "Description", width: 400 },
@@ -142,7 +142,7 @@ export const userColumns = [
           renderCell: (params) => {
             return (
               <div className="cellWithImg">
-                <img className="cellImg" src={params.row.photo} alt="avatar" />
+                <img className="cellImg" src="https://cdn-icons-png.flaticon.com/512/4629/4629699.png" alt="avatar" />
                 {params.row.username}
               </div>
             );
@@ -164,7 +164,8 @@ export const userColumns = [
     
     
     export const locationColumns = [
-              { field: "cin", headerName: "CIN", width: 70 },
+              { field: "email", headerName: "E-mail", width: 250
+             },
               { field: "id_vehicule", headerName: "ID Véhicule", width: 150 },
               { field: "id_agence", headerName: "ID Agence", width: 150 },
               { field: "date", headerName: "Date", width: 150 },

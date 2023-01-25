@@ -17,7 +17,20 @@ const { id } = useParams();
 const [user, setUser] = useState({});
 const [user2, setUser2] = useState([]);
 const [user3, setUser3] = useState([]);
-
+const fetchData2 = async (id) => {
+  try {
+    const reqUrl = `http://localhost:3010/location/agence/${id}`;
+    const response = await fetch(reqUrl);
+    const data = await response.json();
+    setUser2(data.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+console.log(user2);
+useEffect(() => {
+  fetchData2(id);
+}, [id]);
 
 const fetchData = async (id) => {
   try {
@@ -40,26 +53,27 @@ return (
 <Table sx={{ minWidth: 650 }} aria-label="simple table">
 <TableHead>
 <TableRow>
-<TableCell className="tableCell">Id agence</TableCell>
-<TableCell className="tableCell">Product</TableCell>
+<TableCell className="tableCell">Id velo</TableCell>
+<TableCell className="tableCell">Marque</TableCell>
+<TableCell className="tableCell">Customer cin</TableCell>
 <TableCell className="tableCell">Customer</TableCell>
 <TableCell className="tableCell">Date</TableCell>
 <TableCell className="tableCell">Amount</TableCell>
-<TableCell className="tableCell">Pris</TableCell>
+
 
 </TableRow>
 </TableHead>
 <TableBody>
 {user2.map((row) => (
-<TableRow key={row.id_agence}>
+<TableRow key={row.id}>
 <TableCell component="th" scope="row">
-{row.nom}
+{row.id_vehicule}
 </TableCell>
-<TableCell>{row.id_vehicule}</TableCell>
-<TableCell>{row.cin}</TableCell>
-<TableCell>{row.date}</TableCell>
+<TableCell>{row.marque}</TableCell>
+<TableCell>{row.email}</TableCell>
+<TableCell>{row.nom}{row.prenom}</TableCell>
 <TableCell>{row.prix*row.periode}</TableCell>
-<TableCell>{row.prix} jours(s)</TableCell>
+<TableCell>{row.prix}</TableCell>
 
 </TableRow>
 ))}

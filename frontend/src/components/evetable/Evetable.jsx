@@ -31,9 +31,17 @@ function Datatable() {
 
 
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
+    const handleDelete = async (id) => {
+      if (window.confirm("Are you sure you want to delete this item?")) {
+        try {
+          const reqUrl = `http://localhost:3010/event/${id}`;
+          await fetch(reqUrl, { method: "DELETE" });
+          setData(prevData => prevData.filter(item => item.id !== id));
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
 
   const actionColumn = [
     {

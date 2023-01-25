@@ -14,19 +14,19 @@ const Singlec = () => {
 console.log(idNumber);
   const [user, setUser] = useState({});
 
+  const fetchData = async (id) => {
+    try {
+      const reqUrl = `http://localhost:3010/organization/${id}`;
+      const response = await fetch(reqUrl);
+      const data = await response.json();
+      setUser(data.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  console.log(user);
   useEffect(() => {
-    const fetchUser = async () => {
-      console.log(clubRows.map(user => user.id));
-      console.log(clubRows);
-      const userData = clubRows.find(({ id: dataId }) => dataId === idNumber);
-      if (userData) {
-        console.log(`Found item:`, userData);
-        setUser(userData);
-      } else {
-        console.log(`No item found with id: ${id}`);
-      }
-    };
-    fetchUser();
+    fetchData(id);
   }, [id]);
   
   return (
@@ -40,7 +40,8 @@ console.log(idNumber);
             <h1 className="title">Information</h1>
             <div className="item">
               <img
-                src={user.photo}
+                src="https://cdn-icons-png.flaticon.com/512/4629/4629699.png"
+                //{user.photo}
                 alt=""
                 className="itemImg"
               />

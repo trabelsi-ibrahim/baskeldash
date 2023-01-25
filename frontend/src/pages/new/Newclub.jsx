@@ -79,27 +79,24 @@ function submit(e){
               </div>
               <div className="formInput" >
                   <label>id de club</label>
-                  <input type="text" placeholder="club de velo" value={(data.id)}
+                  <input type="text" placeholder="" id="id" value={(data.id)}
                 onChange={(e)=>handle(e)}/>
                 </div>
               <div className="formInput" >
                   <label>Nom de club</label>
-                  <input type="text" placeholder="club de velo" value={(data.nom)}
+                  <input type="text" placeholder="bike club" id="nom" value={(data.nom)}
                 onChange={(e)=>handle(e)}/>
                 </div>
-                <div className="formInput" >
-                  <label>Nom de club</label>
-                  <input type="text" placeholder="club de velo" value={(data.nom)}
-                onChange={(e)=>handle(e)}/>
-                </div>
+                
+                
                 <div className="formInput" key="1">
                   <label>Description</label>
-                  <input type="text" placeholder="Description" value={(data.id.description)}
+                  <input type="text" placeholder="Description" id="description" value={(data.description)}
                 onChange={(e)=>handle(e)}/>
                 </div>
                 <div className="formInput" >
                   <label>Adresse</label>
-                  <input type="text" placeholder="Monastir R6" value={(data.id.adresse)}
+                  <input type="text" placeholder="Monastir R6" id="adresse" value={(data.adresse)}
                 onChange={(e)=>handle(e)}/>
                 </div>
               

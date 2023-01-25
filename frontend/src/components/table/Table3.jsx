@@ -17,7 +17,20 @@ const { id } = useParams();
 const [user, setUser] = useState({});
 const [user2, setUser2] = useState([]);
 const [user3, setUser3] = useState([]);
-
+const fetchData2 = async (id) => {
+  try {
+    const reqUrl = `http://localhost:3010/location/client/${id}`;
+    const response = await fetch(reqUrl);
+    const data = await response.json();
+    setUser2(data.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+console.log(user2);
+useEffect(() => {
+  fetchData2(id);
+}, [id]);
 
 const fetchData = async (id) => {
   try {

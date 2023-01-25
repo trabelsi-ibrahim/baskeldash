@@ -19,7 +19,7 @@ function Newv  ({title})  {
     couleur:"",
     rate:"",
     speed:"",
-    
+    image:"",
 
   })
   
@@ -31,25 +31,29 @@ function handle(e){
 }
 
 
-function submit(e){
+
+
+const submit = async (e)=>{
   e.preventDefault(); 
-  fetch("http://localhost:3005/API/vehicule",{
-    method:"POST",
-    CrossDomain:true,
-    headers:{
-      "Content-Type":"application/json",
-      Accept : "application/json",
-      "Access-Control-Allow-Origin":"*",
-    },
-    body:JSON.stringify(
-     data
-    ),
-
-  }).then((res)=>res.json())
-  .then((data)=>{console.log("le data : ",data);});
-}
-
-
+  try {
+    const reqUrl = "http://localhost:3010/vehicule/createVeh";
+    const response = await fetch(reqUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    const result = await response.json();
+    console.log(result); // this will print the response from the server
+    if (result.success === 1) {
+     
+    if (result.data.success === 0) {
+      alert(result.data.message);
+      
+    }}
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 
   return (
@@ -88,53 +92,53 @@ function submit(e){
               
                 <div className="formInput" >
                   <label>Id agence</label>
-                  <input type="text" placeholder=""  maxLength={8} value={(data.id_agence)}
+                  <input type="text" placeholder=""  maxLength={8} id="id_agence" value={(data.id_agence)}
                 onChange={(e)=>handle(e)}/>
                 </div>
                 <div className="formInput" key="1">
                   <label>Id velo</label>
-                  <input type="text" placeholder="" maxLength={8} value={(data.id)}
+                  <input type="text" placeholder="" maxLength={8} id="id" value={(data.id)}
                 onChange={(e)=>handle(e)}/>
                 </div>
                 <div className="formInput" >
                   <label>Type</label>
-                  <input type="text" placeholder="bike/scooter" value={(data.type)}
+                  <input type="text" placeholder="bike/scooter" id="type"value={(data.type)}
                 onChange={(e)=>handle(e)}/>
                 </div>
                 <div className="formInput" >
                   <label>Marque</label>
-                  <input type="text"placeholder="" value={(data.marque)}
+                  <input type="text"placeholder="" id="marque" value={(data.marque)}
                 onChange={(e)=>handle(e)}/>
                 </div>
                 <div className="formInput" >
                   <label>Nom</label>
-                  <input type="text" placeholder=""  value={(data.nom)}
+                  <input type="text" placeholder=""  id="nom" value={(data.nom)}
                 onChange={(e)=>handle(e)}/>
                 </div>
                 <div className="formInput" >
                   <label>Prix</label>
-                  <input type="number" placeholder="20 TND" value={(data.prix)}
+                  <input type="number" placeholder="20 TND" id="prix" value={(data.prix)}
                 onChange={(e)=>handle(e)}/>
                 </div>
                 <div className="formInput" >
                   <label>Couleur</label>
-                  <input type="text" placeholder="noir" value={(data.couleur)}
+                  <input type="text" placeholder="noir" id="couleur" value={(data.couleur)}
                 onChange={(e)=>handle(e)}/>
                 </div>
                 <div className="formInput" >
                   <label>Rate</label>
-                  <input type="number" placeholder="0.00" min={0.00} max={10.00} step={0.1} value={(data.rate)}
+                  <input type="number" placeholder="0.00" min={0.00} max={10.00} step={0.1} id="rate" value={(data.rate)}
                 onChange={(e)=>handle(e)}/>
                 </div>
                 <div className="formInput" >
                   <label>Vitesse</label>
-                  <input type="number" placeholder="20.00" step={0.1} value={(data.speed)}
+                  <input type="number" placeholder="20.00" step={0.1} id="speed" value={(data.speed)}
                 onChange={(e)=>handle(e)}/>
 
                 </div>
                 <div className="formInput" >
                   <label>Description</label>
-                  <input type="text" placeholder="Description"  value={(data.description)}
+                  <input type="text" placeholder="Description"  id="description" value={(data.description)}
                 onChange={(e)=>handle(e)}/>
                   
                 </div>

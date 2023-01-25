@@ -2,7 +2,7 @@ import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
-import List from "../../components/table/Table";
+import List from "../../components/table/Table3";
 import { useRows } from '../../datatablesource';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -15,51 +15,22 @@ console.log(idNumber);
 
 const [user, setUser] = useState({});
 const [data2, setData2] = useState([]);
-const [data, setData] = useState([]);
+const [data, setData] = useState(useRows);
 
-useEffect(()=>{
-  async function fetchUserList(){
-  try{
-  const reqUrl='http://localhost:3002/organization/getOrg'
-  const reponse = await fetch(reqUrl)
-  const repJson = await reponse.json();
-  console.log(repJson);
-  setData2(repJson.message);
-  
-  }catch{}
+const fetchData = async (id) => {
+  try {
+    const reqUrl = `http://localhost:3010/client/${id}`;
+    const response = await fetch(reqUrl);
+    const data = await response.json();
+    setUser(data.data);
+  } catch (error) {
+    console.error(error);
   }
-  fetchUserList();},[]);
-  console.log(' org: ',data2);
-  
-
-
-
-useEffect(()=>{
-async function fetchUserList(){
-try{
-const reqUrl='http://localhost:3002/client/getCl'
-const reponse = await fetch(reqUrl)
-const repJson = await reponse.json();
-console.log(repJson);
-setData(repJson.message);
-
-}catch{}
-}
-fetchUserList();},[]);
-console.log('client',data);
-
-const getClientbyId = (id) => {
-  
-  const client = data.find(client => client.id === Number(id));
-  console.log(client)
-  return client ? client : "Agency not found";
-}
-console.log(user)
-//setUser(getClientbyId(idNumber));
-
-
-
-
+};
+console.log(user);
+useEffect(() => {
+  fetchData(id);
+}, [id]);
 
 return (
   <div className="single">
@@ -72,7 +43,8 @@ return (
         <h1 className="title">Information</h1>
         <div className="item">
           <img
-            src={user.img}
+            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            ///{user.image}
             alt=""
             className="itemImg"
           />
@@ -105,7 +77,7 @@ return (
     </div>
     <div className="bottom">
     <h1 className="title">Last Transactions</h1>
-      <List data={user.transactions}/>
+      <List email={user.email}/>
     </div>
   </div>
 </div>
